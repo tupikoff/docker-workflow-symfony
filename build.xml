@@ -15,6 +15,10 @@
             <arg value="cache-dir" />
             <arg value="/srv/var/cache/composer" />
         </composer>
+
+        <mkdir dir="${project.basedir}/.sync" />
+        <chmod file="${project.basedir}/.sync" mode="0744" />
+
         <composer composer="${composer.path}" command="install" />
         <exec executable="sync-vendor" passthru="true" />
 
